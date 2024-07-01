@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "JetBrains Mono";
+    font-weight: normal;
+    src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    font-weight: bold;
+    src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+}
+
+body {
+    @apply bg-main-900 text-gray-300 font-display;
+    @apply my-2 mx-2 md:max-w-screen-md md:mx-auto;
+}
+
+::selection {
+    @apply bg-main-700;
+}
+
+h1 {
+    @apply font-bold text-3xl my-3;
+}
+
+h2 {
+    @apply font-bold text-2xl my-2;
+}
+
+h3 {
+    @apply font-bold text-xl my-1;
+}
+
+h4 {
+    @apply font-bold;
+}
+
+p {
+    @apply my-2;
+}
+
+a {
+    @apply text-highlight-500 hover:text-highlight-200 no-underline;
+}
+
+abbr {
+    @apply decoration-main-600;
+}
+
+pre {
+    @apply font-display m-0;
+}
+
+code {
+    @apply font-display bg-main-800 px-1 py-0.5;
+}
+
+.muted {
+    @apply text-main-700;
+}
+
+header {
+    @apply my-4 flex justify-between items-center gap-4 flex-col md:flex-row;
+}
+
+main {
+    @apply mb-4;
+}
+
+footer {
+    @apply border-t border-solid border-0 border-t-main-800 text-main-600 text-center pt-2;
+}
+
+footer p {
+    @apply m-0;
+}
+
+.logo {
+    @apply flex gap-2 items-center text-highlight-500;
+}
+
+.logo h1 {
+    @apply font-semibold m-0;
+}
+
+.logo svg {
+    @apply h-8;
+}
+
+.links {
+    @apply flex gap-2 flex-wrap justify-center;
+}
+
+.links li::before { content: '[ ' }
+.links li::after { content: ' ]' }
+
+ul.buttons {
+    @apply flex gap-x-[0.57rem] gap-y-1 flex-wrap mt-2;
+    image-rendering: pixelated;
+}
+
+pre.art {
+    @apply hidden md:block float-right leading-tight;
+}
+
+.block {
+    @apply border-2 border-solid border-main-800 p-2 mt-2 w-full md:w-auto inline-block;
+}
+
+.block h4, p {
+    @apply m-0;
+}
