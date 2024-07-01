@@ -5,18 +5,19 @@
 @font-face {
     font-family: "JetBrains Mono";
     font-weight: normal;
-    src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+    src: local('JetBrains Mono'), url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
 }
 
 @font-face {
     font-family: "JetBrains Mono";
     font-weight: bold;
-    src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+    src: local('JetBrains Mono'), url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
 }
 
 body {
-    @apply bg-main-900 text-gray-300 font-display;
+    @apply bg-main-900 text-gray font-display;
     @apply my-2 mx-2 md:max-w-screen-md md:mx-auto;
+    font-display: monospace;
 }
 
 ::selection {
@@ -44,7 +45,7 @@ p {
 }
 
 a {
-    @apply text-highlight-500 hover:text-highlight-200 no-underline;
+    @apply text-main-300 hover:text-main-200 no-underline;
 }
 
 abbr {
@@ -79,24 +80,24 @@ footer p {
     @apply m-0;
 }
 
-.logo {
-    @apply flex gap-2 items-center text-highlight-500;
+a.logo {
+    @apply flex gap-2 items-center text-logo;
 }
 
-.logo h1 {
-    @apply font-semibold m-0;
+a.logo h1 {
+    @apply font-bold m-0;
 }
 
-.logo svg {
+a.logo svg {
     @apply h-8;
 }
 
-.links {
+ul.links {
     @apply flex gap-2 flex-wrap justify-center;
 }
 
-.links li::before { content: '[ ' }
-.links li::after { content: ' ]' }
+ul.links li::before { content: '[ ' }
+ul.links li::after { content: ' ]' }
 
 ul.buttons {
     @apply flex gap-x-[0.57rem] gap-y-1 flex-wrap mt-2;
@@ -107,10 +108,10 @@ pre.art {
     @apply hidden md:block float-right leading-tight;
 }
 
-.block {
+div.block {
     @apply border-2 border-solid border-main-800 p-2 mt-2 w-full md:w-auto inline-block;
 }
 
-.block h4, p {
+div.block h4, div.block p {
     @apply m-0;
 }

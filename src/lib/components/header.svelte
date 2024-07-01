@@ -3,11 +3,9 @@
 </script>
 
 <header>
-    <a href="/">
-        <div class="logo">
-            <Logo />
-            <h1>n3tael</h1>
-        </div>
+    <a href="/" class="logo">
+        <Logo />
+        <h1>n3tael</h1>
     </a>
     <ul class="links">
         <li><a href="/c">contacts</a></li>
