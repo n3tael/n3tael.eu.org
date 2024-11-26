@@ -2,7 +2,8 @@
 	<li><a href="https://bedohswe.eu.org/"><img src="/buttons/bedohswe.gif" alt="Bʰedoh₂ swé" width="88" height="31"></a></li>
 	<li><a href="https://doomzday.bandcamp.com/"><img src="/buttons/doomzday.png" alt="Doömzday" width="88" height="31"></a></li>
 	<li><a href="https://meex.lol/meow"><img src="/buttons/meexsite.gif" title="MeexSite" width="88" height="31"></a>
-	<li><a href="https://www.mozilla.org/firefox/"><img src="/buttons/firefox.png" alt="Mozialla Firefox" width="88" height="31"></a></li>
+	<li><a href="https://aynura1337.site/bio"><img src="/buttons/aynura1337.gif" title="aynura1337" width="88" height="31"></a>
+  <li><a href="https://www.mozilla.org/firefox/"><img src="/buttons/firefox.png" alt="Mozialla Firefox" width="88" height="31"></a></li>
   <li><a href="https://imhex.werwolv.net/"><img src="/buttons/imhex.png" alt="ImHex" width="88" height="31"></a></li>
 	<li><a href="https://houl.floof.company/"><img src="/buttons/houl.png" alt="Houl" width="88" height="31"></a></li>
 	<li><a href="https://piclog.blue/"><img src="/buttons/piclog.png" alt="piclog" width="88" height="31"></a></li>
