@@ -9,6 +9,7 @@
 	<li><a href="https://piclog.blue/"><img src="/buttons/piclog.png" alt="piclog" width="88" height="31"></a></li>
 	<li><a href="https://pixtaded.net/"><img src="/buttons/pixtaded.png" title="pixtaded" width="88" height="31"></a></li>
 	<li><a href="https://slonk.ing/"><img src="/buttons/slonk.apng" alt="slonk" width="88" height="31"></a></li>
+	<li><a href="https://camper.isvery.fun/"><img src="/buttons/camp3rcraft.gif" alt="camper_crafting" width="88" height="31"></a></li>
 	<li><a href="https://rust-lang.org/"><img src="/buttons/rust.gif" alt="Rust" width="88" height="31"></a></li>
 	<li><a href="https://vendicated.dev/"><img src="/buttons/ven.png" alt="Vendicated" width="88" height="31"></a></li>
 	<li><a href="/b"><img src="/buttons/n3tael.gif" alt="n3tael" width="88" height="31"></a></li>
