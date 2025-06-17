@@ -1,0 +1,78 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: 'PixeloidSans';
+	src: url('/fonts/PixeloidSans.woff2') format(woff2);
+}
+
+@font-face {
+	font-family: 'Silkscreen';
+	src: url('/fonts/Silkscreen-modified.woff2') format(woff2);
+}
+
+@theme {
+	--font-display: 'PixeloidSans', monospace;
+	--text-base: 18px;
+
+	--font-small: 'Silkscreen', monospace;
+	--text-small: 16px;
+
+	--drop-shadow-logo: 0 0 10px rgba(255, 255, 255, 0.5);
+	--text-shadow-crt: 0 0 16px;
+}
+
+html {
+	@apply mx-auto max-w-2xl bg-neutral-900 px-4 pt-4 text-neutral-300 md:px-0;
+	scrollbar-width: thin;
+
+	#crt {
+		@apply pointer-events-none fixed top-0 right-0 bottom-0 left-0 bg-linear-[0deg,black,black,#0000,#0000] bg-size-[100%_4px] opacity-0 transition-opacity;
+	}
+
+	&.crt {
+		@apply saturate-200 transition-[text-shadow,filter] text-shadow-crt;
+
+		#crt {
+			@apply opacity-20;
+		}
+
+		#crt-tumbler {
+			@apply text-white;
+		}
+	}
+}
+
+body {
+	@apply font-display text-base;
+	image-rendering: pixelated;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small,
+a,
+pre {
+	@apply grayscale;
+}
+
+a {
+	@apply underline decoration-2;
+}
+
+p {
+	@apply my-2 leading-6;
+}
+
+small {
+	@apply block font-small text-small text-neutral-500 uppercase;
+}
+
+pre {
+	@apply my-2 overflow-x-auto bg-neutral-800 px-2 py-1 font-display;
+	scrollbar-width: thin;
+}
