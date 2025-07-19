@@ -8,10 +8,10 @@
 				width="88"
 				height="31" />
 		</a>
-		<a href="https://aynura1337.site/">
+		<a href="https://crytality.pw/">
 			<img
-				src="/assets/buttons/aynura1337.gif"
-				alt="aynura1337"
+				src="/assets/buttons/crytality.png"
+				alt="crytality"
 				width="88"
 				height="31" />
 		</a>
