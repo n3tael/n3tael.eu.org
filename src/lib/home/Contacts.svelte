@@ -22,15 +22,11 @@
 <style lang="postcss">
 	@reference "../../app.css";
 
-	#contacts a :global {
-		@apply ml-auto flex h-10 w-fit items-center justify-end gap-1 border-2 border-neutral-800 bg-[url('/assets/contacts-background.png')] bg-cover px-2 py-1 grayscale transition-all hover:border-neutral-700 md:w-full md:justify-start;
+	#contacts a {
+		@apply ml-auto flex h-10 w-fit items-center justify-end gap-2 border-2 border-neutral-800 bg-[url('/assets/contacts-background.png')] bg-cover px-2 py-1 no-underline grayscale transition-all hover:border-neutral-700 md:w-full md:justify-start;
 
 		&:not(:first-child) {
 			@apply mt-1;
-		}
-
-		img {
-			@apply md:mr-1;
 		}
 
 		span {
