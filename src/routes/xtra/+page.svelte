@@ -36,6 +36,13 @@
 			}
 		},
 		{
+			href: 'https://int4.cc',
+			image: {
+				src: '/assets/buttons/int4_t.png',
+				alt: 'int4_t'
+			}
+		},
+		{
 			href: 'https://doomzday.bandcamp.com/',
 			image: {
 				src: '/assets/buttons/doomzday.png',
