@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Email from '$lib/icons/Email.svelte';
-	import Telegram from '$lib/icons/Telegram.svelte';
+	import Matrix from '$lib/icons/Matrix.svelte';
 	import Discord from '$lib/icons/Discord.svelte';
+	import Telegram from '$lib/icons/Telegram.svelte';
 </script>
 
 <div id="contacts">
@@ -9,13 +10,17 @@
 		<Email size="2" />
 		<span>netael @&gt;~ pm.me</span>
 	</a>
-	<a href="https://n3tael.t.me">
-		<Telegram size="2" />
-		<span>@n3tael</span>
+	<a href="https://matrix.to/#/@n3tael:envs.net">
+		<Matrix size="2" />
+		<span>@n3tael:envs.net</span>
 	</a>
 	<a href="https://discord.com/users/484382663097057290">
 		<Discord size="2" />
 		<span>n3tael</span>
+	</a>
+	<a href="https://n3tael.t.me">
+		<Telegram size="2" />
+		<span>@n3tael</span>
 	</a>
 </div>
 
