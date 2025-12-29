@@ -19,6 +19,18 @@
 
 	--drop-shadow-logo: 0 0 10px rgba(255, 255, 255, 0.5);
 	--text-shadow-crt: 0 0 16px;
+
+	--animate-loadingDot: loadingDot 1s ease-in-out infinite;
+
+	@keyframes loadingDot {
+		0%,
+		100% {
+			opacity: 0.5;
+		}
+		50% {
+			opacity: 1;
+		}
+	}
 }
 
 html {
@@ -75,4 +87,12 @@ small {
 pre {
 	@apply my-2 overflow-x-auto bg-neutral-800 px-2 py-1 font-display;
 	scrollbar-width: thin;
+}
+
+textarea {
+	@apply border-2 border-neutral-800 px-2 py-1 focus:outline-0;
+}
+
+button {
+	@apply border-2 border-neutral-800 px-2 transition-[background-color,opacity] hover:bg-neutral-800/50 disabled:opacity-50;
 }

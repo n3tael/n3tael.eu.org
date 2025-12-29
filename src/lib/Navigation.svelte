@@ -19,6 +19,10 @@
 			name: 'identity'
 		},
 		{
+			path: '/qna',
+			name: 'qna'
+		},
+		{
 			path: '/xtra',
 			name: 'extra'
 		}
