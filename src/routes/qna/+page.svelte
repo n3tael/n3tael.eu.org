@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Loading from '$lib/Loading.svelte';
 	import Turnstile from '$lib/Turnstile.svelte';
-	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
+	import { toast, Toaster } from 'svelte-sonner';
+	import { browser } from '$app/environment';
 
 	type Question = {
 		name: string;
@@ -14,8 +15,6 @@
 	let form: HTMLFormElement;
 	let turnstile_solved = $state(false);
 	let form_loading = $state(false);
-	let questions_loaded = $state(false);
-	let questions: Question[] = $state([]);
 	let content = $state('');
 
 	const random_questions = [
@@ -27,24 +26,20 @@
 		'???!?!??!'
 	];
 
-	async function getMessages() {
-		questions_loaded = false;
-
-		questions = await fetch(
+	async function getQuestions(): Promise<Question[]> {
+		return await fetch(
 			`${import.meta.env.VITE_QNA_API_SERVER}/questions`
 		).then((r) => r.json());
-
-		questions_loaded = true;
 	}
 
-	async function postMessage(
+	async function postQuestion(
 		e: SubmitEvent & { currentTarget: EventTarget & HTMLFormElement }
 	) {
 		e.preventDefault();
 
 		form_loading = true;
 
-		await fetch(`${import.meta.env.VITE_QNA_API_SERVER}/questions`, {
+		const response = await fetch(`${import.meta.env.VITE_QNA_API_SERVER}/questions`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -55,22 +50,39 @@
 			})
 		});
 
-		form.reset();
+		if (response.status === 201) {
+			form.reset();
+		} else {
+			toast.error("Error!", { description: (await response.json())?.error || "Unexcepted error occured while sending your question, view console for details" })
+		}
 
 		form_loading = false;
 	}
-
-	onMount(getMessages);
 </script>
 
+<Toaster
+	position="top-center"
+	toastOptions={{
+		unstyled: true,
+		classes: {
+			toast: 'bg-neutral-900 p-2 border-2 border-neutral-800 w-full flex gap-2 shadow-sm',
+			title: 'font-small text-small text-neutral-500 grayscale',
+			description: 'font-display grayscale',
+		},
+	}}
+>
+	{#snippet errorIcon()}
+		<span class="font-display px-1 grayscale">✕</span>
+	{/snippet}
+</Toaster>
+<noscript class="border-2 px-2 py-1 block my-2 border-yellow-500/25 bg-yellow-500/10"
+		>It looks like you have Javascript disabled. Please enable it if you want to
+		view this page.</noscript>
 <article>
 	<small class="my-2">Questions & Answers</small>
 	<p>Here you can ask me questions or view answered questions</p>
-	<noscript
-		>It looks like you have Javascript disabled. Please enable it if you want to
-		view this page.</noscript>
 
-	<form bind:this={form} id="question-form" onsubmit={postMessage}>
+	<form bind:this={form} id="question-form" onsubmit={postQuestion}>
 		{#if !turnstile_solved || form_loading}
 			<div id="loading-container" transition:fade>
 				<Loading
@@ -96,8 +108,13 @@
 			<button disabled={!turnstile_solved} type="submit">Send</button>
 		</div>
 	</form>
+
 	<div id="questions">
-		{#if questions_loaded}
+		{#await browser ? getQuestions() : Promise.resolve([])}
+			<div class="my-16 text-center">
+				<Loading />
+			</div>
+		{:then questions}
 			{#each questions as question, i}
 				<div class="question" in:fly|global={{ y: 25, delay: 40 * i }}>
 					<small style="color:#{question.name};filter:none">
@@ -114,11 +131,9 @@
 			{:else}
 				<small class="text-center my-8">nothing here yet</small>
 			{/each}
-		{:else}
-			<div class="my-8 text-center">
-				<Loading />
-			</div>
-		{/if}
+		{:catch e}
+			<small class="text-center my-16">{e}</small>
+		{/await}
 	</div>
 </article>
 

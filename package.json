@@ -23,6 +23,7 @@
 		"prettier-plugin-tailwindcss": "^0.6.14",
 		"svelte": "^5.43.6",
 		"svelte-check": "^4.3.4",
+		"svelte-sonner": "^1.0.7",
 		"tailwindcss": "^4.1.17",
 		"turnstile-types": "^1.2.3",
 		"typescript": "^5.9.3",

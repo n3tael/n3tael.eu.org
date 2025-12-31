@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import Logo from '$lib/Logo.svelte';
 
 	const NUMBER_OF_BACKGROUNDS = 5;
-	let randomBackground = Math.floor(Math.random() * NUMBER_OF_BACKGROUNDS + 1);
+	let randomBackground = browser ? Math.floor(Math.random() * NUMBER_OF_BACKGROUNDS + 1) : 1;
 </script>
 
 <header style="background-image:url('/assets/banners/{randomBackground}.png')">
