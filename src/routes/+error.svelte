@@ -8,7 +8,7 @@
 </div>
 
 <style lang="postcss">
-	@reference "../app.css";
+	@reference "$styles";
 
 	#error {
 		@apply my-16 text-center;

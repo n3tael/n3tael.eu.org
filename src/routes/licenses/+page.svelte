@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { asset } from '$app/paths';
+</script>
+
 <article>
 	<small>Content</small>
 	<p>
@@ -10,14 +14,14 @@
 	<small>Fonts</small>
 	<p>
 		This site uses Pixeloid Sans font, licensed under <a
-			href="/fonts/PixeloidSans.woff2.LICENSE.txt"
+			href={asset('/licenses/PixeloidSans.woff2.LICENSE.txt')}
 			target="_blank">
 			SIL Open Font License 1.1
 		</a>.
 	</p>
 	<p>
 		This site uses modified version of Silkscreen font, licensed under <a
-			href="/fonts/Silkscreen-modified.woff2.LICENSE.txt"
+			href={asset('/licenses/Silkscreen-modified.woff2.LICENSE.txt')}
 			target="_blank">
 			SIL Open Font License 1.1
 		</a>.

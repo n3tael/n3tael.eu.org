@@ -10,7 +10,7 @@
 		"prettier-plugin-organize-imports",
 		"prettier-plugin-tailwindcss"
 	],
-	"tailwindStylesheet": "./src/app.css",
+	"tailwindStylesheet": "./src/routes/layout.css",
 	"overrides": [
 		{
 			"files": "*.svelte",

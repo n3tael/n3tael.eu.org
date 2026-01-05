@@ -1,4 +1,5 @@
 <script lang="ts">
+	import icon from '$lib/assets/icons/code.gif?inline';
 	import type { HTMLImgAttributes } from 'svelte/elements';
 
 	let { size = '1', ...restProps }: { size: string } & HTMLImgAttributes =
@@ -6,7 +7,7 @@
 </script>
 
 <img
-	src="data:image/gif;base64,R0lGODlhCgAHAHAAACH5BAEAAAEALAAAAAAKAAcAgXNzcwAAAAAAAAAAAAINjHGmuK3JHpQhxipZLAA7"
+	src={icon}
 	width={10 * Number(size)}
 	height={7 * Number(size)}
 	alt="Code Icon"

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import icon from '$lib/assets/icons/matrix.gif?inline';
 	import type { HTMLImgAttributes } from 'svelte/elements';
 
 	let { size = '1', ...restProps }: { size: string } & HTMLImgAttributes =
@@ -6,7 +7,7 @@
 </script>
 
 <img
-	src="data:image/gif;base64,R0lGODlhCgAKAHAAACH5BAEAAAEALAAAAAAKAAoAgXNzcwAAAAAAAAAAAAIUBIJocZnXHJurQYqvzlxiD0XKUQAAOw"
+	src={icon}
 	width={10 * Number(size)}
 	height={10 * Number(size)}
 	alt="Matrix Icon"

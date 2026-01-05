@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Loading from '$lib/Loading.svelte';
-	import Turnstile from '$lib/Turnstile.svelte';
+	import Loading from '$lib/components/loading.svelte';
+	import Turnstile from '$lib/components/turnstile.svelte';
 	import { fade, fly } from 'svelte/transition';
-	import { toast, Toaster } from 'svelte-sonner';
+	import { toast } from 'svelte-sonner';
 	import { browser } from '$app/environment';
 
 	type Question = {
@@ -27,9 +27,9 @@
 	];
 
 	async function getQuestions(): Promise<Question[]> {
-		return await fetch(
-			`${import.meta.env.VITE_QNA_API_SERVER}/questions`
-		).then((r) => r.json());
+		return await fetch(`${import.meta.env.VITE_QNA_API_SERVER}/questions`).then(
+			(r) => r.json()
+		);
 	}
 
 	async function postQuestion(
@@ -39,45 +39,38 @@
 
 		form_loading = true;
 
-		const response = await fetch(`${import.meta.env.VITE_QNA_API_SERVER}/questions`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				content,
-				token: window.turnstile.getResponse()
-			})
-		});
+		const response = await fetch(
+			`${import.meta.env.VITE_QNA_API_SERVER}/questions`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					content,
+					token: window.turnstile.getResponse()
+				})
+			}
+		);
 
 		if (response.status === 201) {
 			form.reset();
 		} else {
-			toast.error("Error!", { description: (await response.json())?.error || "Unexcepted error occured while sending your question, view console for details" })
+			toast.error('Error!', {
+				description:
+					(await response.json())?.error ||
+					'Unexcepted error occured while sending your question, view console for details'
+			});
 		}
 
 		form_loading = false;
 	}
 </script>
 
-<Toaster
-	position="top-center"
-	toastOptions={{
-		unstyled: true,
-		classes: {
-			toast: 'bg-neutral-900 p-2 border-2 border-neutral-800 w-full flex gap-2 shadow-sm',
-			title: 'font-small text-small text-neutral-500 grayscale',
-			description: 'font-display grayscale',
-		},
-	}}
->
-	{#snippet errorIcon()}
-		<span class="font-display px-1 grayscale">✕</span>
-	{/snippet}
-</Toaster>
-<noscript class="border-2 px-2 py-1 block my-2 border-yellow-500/25 bg-yellow-500/10"
-		>It looks like you have Javascript disabled. Please enable it if you want to
-		view this page.</noscript>
+<noscript
+	class="my-2 block border-2 border-yellow-500/25 bg-yellow-500/10 px-2 py-1"
+	>It looks like you have Javascript disabled. Please enable it if you want to
+	view this page.</noscript>
 <article>
 	<small class="my-2">Questions & Answers</small>
 	<p>Here you can ask me questions or view answered questions</p>
@@ -115,12 +108,12 @@
 				<Loading />
 			</div>
 		{:then questions}
-			{#each questions as question, i}
+			{#each questions as question, i (i)}
 				<div class="question" in:fly|global={{ y: 25, delay: 40 * i }}>
-					<small style="color:#{question.name};filter:none">
-						#{question.name}
-						<span class="text-neutral-500" title={question.created_at}
-							>{new Date(question.created_at).toDateString()}</span>
+					<small class="inline! grayscale-0!" style="color:#{question.name}"
+						>#{question.name}</small>
+					<small class="inline!" title={question.created_at}
+						>{new Date(question.created_at).toDateString()}
 					</small>
 					<p>{question.content}</p>
 					{#if question.answer}
@@ -132,13 +125,13 @@
 				<small class="text-center my-8">nothing here yet</small>
 			{/each}
 		{:catch e}
-			<small class="text-center my-16">{e}</small>
+			<small class="my-16 text-center">{e}</small>
 		{/await}
 	</div>
 </article>
 
 <style lang="postcss">
-	@reference "../../app.css";
+	@reference "$styles";
 
 	#question-form {
 		@apply relative border-2 border-neutral-800 p-2;
@@ -152,7 +145,7 @@
 		@apply my-2 flex flex-col gap-2;
 
 		.question {
-			@apply border-2 border-neutral-800 px-3 py-2;
+			@apply border-2 border-neutral-800 px-3 py-2 shadow-xl;
 
 			p {
 				@apply break-all;
