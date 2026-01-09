@@ -1,6 +1,5 @@
 import { asset, resolve } from '$app/paths';
 import aseprite from '$lib/assets/buttons/aseprite.png';
-import camp3rcraft from '$lib/assets/buttons/camp3rcraft.gif';
 import crytality from '$lib/assets/buttons/crytality.png';
 import defenestracijaa from '$lib/assets/buttons/defenestracijaa.png';
 import deltarune from '$lib/assets/buttons/deltarune.gif';
@@ -28,13 +27,6 @@ export default [
 		image: {
 			image: crytality,
 			alt: 'crytality'
-		}
-	},
-	{
-		href: 'https://camp3rcraft.net/',
-		image: {
-			image: camp3rcraft,
-			alt: 'camp3rcraft'
 		}
 	},
 	{
